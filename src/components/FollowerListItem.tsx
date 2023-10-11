@@ -14,10 +14,10 @@ export const FollowerListItem: React.FC<FollowerListItemProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [myFollowers, setMyFollowers] = useState<myFollowersType[]>([]);
 
-  const getFollowerListByUser = async (useName: string) => {
+  const getFollowerListByUser = async (userName: string) => {
     try {
       const res = await axios.get<myFollowersType[]>(
-        `https://api.github.com/users/${useName}/following`
+        `https://api.github.com/users/${userName}/following`
       );
       return res.data;
     } catch (error) {
